@@ -32,18 +32,17 @@ public class NormalizingCourseData {
 			
 			for (int i=0;i<table_fields.length;i++)
 			{
-				System.out.println("ishan");
 				table_fields[i] = CommonUtilities.removeBrackets(table_fields[i]); 
 			}
 			
 			//table_fields[0] = Common_functions.removeBrackets(table_fields[0]); //Formatting Student_id
-			
+			table_fields[1] = table_fields[2];
 			table_fields[2] = CommonUtilities.getTerm(table_fields[2]); // Getting enrollment Term
 			
 			line = "";
 			for (String s:table_fields)
 			{
-				line = line + s + "#"  ;
+				line = line + s + "# "  ;
 			}
 			context.write(new Text(line), NullWritable.get());
 		}

@@ -32,10 +32,10 @@ public class NormalizingStudentData {
 			String line = value.toString();
 			String[] table_fields = line.split(",");
 		
-			table_fields[12] = CommonUtilities.getAge(table_fields[12]); // Getting Age
+			table_fields[8] = CommonUtilities.getAge(table_fields[8]); // Getting Age
 			
 			
-			table_fields[4] = CommonUtilities.getTerm(table_fields[4]); // Getting Graduation Term
+			table_fields[10] = CommonUtilities.getTerm(table_fields[10]); // Getting Graduation Term
 			
 			line = "";
 			for (String s:table_fields)

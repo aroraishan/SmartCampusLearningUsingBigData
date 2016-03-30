@@ -6,11 +6,18 @@ public class CommonUtilities {
 	{
 		try
 		{
-		
+			if(encodedTerm == null)
+			{
+				return "";
+			}
+			if(encodedTerm.length() == 1)
+			{
+				return "";
+			}
 		String graduation_date = encodedTerm.replace('"', ' ').trim();
 		String Semester = "", year;
 		
-		switch(Integer.parseInt(graduation_date.substring(3, 4)))
+		switch(Integer.parseInt(graduation_date.substring(graduation_date.length()-1, graduation_date.length())))
 		{
 		case 1:
 			Semester = "Winter";
@@ -25,9 +32,20 @@ public class CommonUtilities {
 			Semester = "Fall";
 			break;
 		}
-		
+		if(graduation_date.charAt(0) == '2')
+		{
 		year = "20" + graduation_date.substring(1,3); 
 		return Semester + " " + year;
+		}
+		else if(graduation_date.charAt(0) == '9')
+		{
+			year = "19" + graduation_date.substring(0,2); 
+			return Semester + " " + year;
+		}
+		else
+		{
+			return "";
+		}
 		}
 		catch(Exception e)
 		{
